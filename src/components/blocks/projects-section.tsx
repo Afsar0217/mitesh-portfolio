@@ -30,6 +30,7 @@ interface Project {
   tech: string[];
   image: string;
   bgClass: string;
+  liveUrl?: string;
 }
 
 const projects: Project[] = [
@@ -55,6 +56,7 @@ const projects: Project[] = [
     ],
     image: "/p1.jpg",
     bgClass: "bg-gradient-to-br from-blue-700 via-blue-900 to-blue-950",
+    liveUrl: "https://app.zenreports.io/",
   },
   {
     name: "Discount Mitra",
@@ -80,6 +82,7 @@ const projects: Project[] = [
     ],
     image: "/p2.jpg",
     bgClass: "bg-gradient-to-br from-amber-500 via-yellow-600 to-amber-700",
+    liveUrl: "https://play.google.com/store/apps/details?id=com.discountmitra.app",
   },
   {
     name: "Time Is Money",
@@ -96,11 +99,12 @@ const projects: Project[] = [
     tech: ["Webflow", "HTML5", "CSS3", "JavaScript"],
     image: "/p3.jpg",
     bgClass: "bg-gradient-to-br from-emerald-800 via-green-900 to-emerald-950",
+    liveUrl: "https://timeismoney.webflow.io/",
   },
 ];
 
 function ProjectCard({ project }: { project: Project }) {
-  return (
+  const content = (
     <div className="overflow-hidden rounded-2xl shadow-2xl bg-[#111118] h-[28rem]">
       <Image
         src={project.image}
@@ -111,6 +115,19 @@ function ProjectCard({ project }: { project: Project }) {
       />
     </div>
   );
+  if (project.liveUrl) {
+    return (
+      <a
+        href={project.liveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block transition-opacity hover:opacity-90 focus:opacity-90 focus:outline-none"
+      >
+        {content}
+      </a>
+    );
+  }
+  return content;
 }
 
 function ProjectDetails({ project }: { project: Project }) {
@@ -151,17 +168,31 @@ function ProjectDetails({ project }: { project: Project }) {
 }
 
 function MobileProjectCard({ project }: { project: Project }) {
+  const imageBlock = (
+    <div className="overflow-hidden rounded-2xl shadow-2xl">
+      <Image
+        src={project.image}
+        alt={project.name}
+        width={600}
+        height={400}
+        className="h-auto w-full object-cover"
+      />
+    </div>
+  );
   return (
     <div className="mb-16 last:mb-0">
-      <div className="overflow-hidden rounded-2xl shadow-2xl">
-        <Image
-          src={project.image}
-          alt={project.name}
-          width={600}
-          height={400}
-          className="h-auto w-full object-cover"
-        />
-      </div>
+      {project.liveUrl ? (
+        <a
+          href={project.liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block transition-opacity hover:opacity-90 focus:opacity-90 focus:outline-none"
+        >
+          {imageBlock}
+        </a>
+      ) : (
+        imageBlock
+      )}
 
       <div className="mt-6 px-1">
         <div className="mb-3 flex items-center gap-3">
