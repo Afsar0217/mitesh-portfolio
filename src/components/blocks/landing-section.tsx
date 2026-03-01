@@ -21,7 +21,7 @@ export function LandingSection() {
           </p>
 
           <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-white opacity-0 animate-fade-in-up animation-delay-200 sm:text-5xl md:text-6xl lg:text-7xl">
-            I Build
+            We Build
             <br />
             <span className="bg-gradient-to-r from-[#a78bfa] to-[#6d28d9] bg-clip-text text-transparent">
               Digital
@@ -31,7 +31,7 @@ export function LandingSection() {
           </h1>
 
           <p className="mt-6 max-w-md text-base leading-relaxed text-[#a1a1aa] opacity-0 animate-fade-in-up animation-delay-400 md:text-lg">
-            Crafting modern web applications with clean code, thoughtful design, and a focus on performance.
+            Delivering modern web applications with clean code, thoughtful design, and a focus on performance—as part of collaborative teams.
           </p>
 
           <div className="mt-10 opacity-0 animate-fade-in-up animation-delay-600">

@@ -3,13 +3,13 @@
 import React from 'react';
 import Image from 'next/image';
 import { GlowCard } from '@/components/ui/spotlight-card';
-import { Code2, Layers, Globe, Rocket } from 'lucide-react';
+import { Code2, Layers, Globe, Users } from 'lucide-react';
 
 const highlights = [
   { icon: Code2, label: 'Clean Code', desc: 'Maintainable, scalable architecture' },
   { icon: Layers, label: 'Full Stack', desc: 'End-to-end development' },
   { icon: Globe, label: 'Modern Web', desc: 'Latest tools & frameworks' },
-  { icon: Rocket, label: 'Fast Delivery', desc: 'On-time, every time' },
+  { icon: Users, label: 'Team Player', desc: 'Collaborative delivery, on time' },
 ];
 
 export function AboutSection() {
@@ -64,9 +64,9 @@ export function AboutSection() {
 
           {/* Bio */}
           <p className="max-w-xl text-base leading-8 text-[#b0b0b8] md:text-lg">
-            I&apos;m a developer who turns ideas into polished, production-ready
+            I work with teams to turn ideas into polished, production-ready
             digital products. From interactive web apps to scalable backends,
-            I focus on clean architecture, pixel-perfect design, and seamless
+            we focus on clean architecture, pixel-perfect design, and seamless
             user experiences that drive real business results.
           </p>
 

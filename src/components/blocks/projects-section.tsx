@@ -221,11 +221,14 @@ export function ProjectsSection() {
     >
       <div className="mb-6">
         <p className="mb-2 text-sm tracking-[0.3em] uppercase text-[#a78bfa] font-mono">
-          What I&apos;ve built
+          What we&apos;ve built
         </p>
         <h2 className="text-3xl font-bold text-white sm:text-4xl md:text-5xl">
           Projects<span className="text-[#a78bfa]">.</span>
         </h2>
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#a1a1aa]">
+          Delivered as part of collaborative teams—from concept to launch.
+        </p>
       </div>
 
       {/* Desktop — Sticky scroll */}
