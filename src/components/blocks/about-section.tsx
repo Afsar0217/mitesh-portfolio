@@ -1,0 +1,90 @@
+'use client';
+
+import React from 'react';
+import Image from 'next/image';
+import { GlowCard } from '@/components/ui/spotlight-card';
+import { Code2, Layers, Globe, Rocket } from 'lucide-react';
+
+const highlights = [
+  { icon: Code2, label: 'Clean Code', desc: 'Maintainable, scalable architecture' },
+  { icon: Layers, label: 'Full Stack', desc: 'End-to-end development' },
+  { icon: Globe, label: 'Modern Web', desc: 'Latest tools & frameworks' },
+  { icon: Rocket, label: 'Fast Delivery', desc: 'On-time, every time' },
+];
+
+export function AboutSection() {
+  return (
+    <section
+      id="about"
+      className="relative w-full min-h-screen bg-[#0a0a0a] py-28 px-6 md:px-16 lg:px-24"
+    >
+      {/* Section heading */}
+      <div className="mb-20 max-w-3xl">
+        <p className="mb-3 text-xs tracking-[0.35em] uppercase text-[#a78bfa] font-mono">
+          Get to know me
+        </p>
+        <h2 className="text-4xl font-bold text-white sm:text-5xl md:text-6xl tracking-tight">
+          About Me<span className="text-[#a78bfa]">.</span>
+        </h2>
+      </div>
+
+      {/* Main content */}
+      <div className="flex flex-col items-center gap-16 lg:flex-row lg:items-start lg:gap-24">
+        {/* Left — Photo */}
+        <div className="flex-shrink-0">
+          <GlowCard
+            glowColor="purple"
+            customSize
+            className="!p-0 overflow-hidden"
+            width={300}
+            height={380}
+          >
+            <Image
+              src="/photo.jpg"
+              alt="Mitesh Panda"
+              width={300}
+              height={380}
+              className="relative z-[2] h-full w-full rounded-2xl object-cover object-top"
+              priority
+            />
+          </GlowCard>
+        </div>
+
+        {/* Right — Info */}
+        <div className="flex flex-1 flex-col gap-10">
+          {/* Name & title */}
+          <div>
+            <h3 className="text-3xl font-bold tracking-tight text-white md:text-4xl font-serif italic">
+              Mitesh Panda
+            </h3>
+            <p className="mt-2 text-[#a78bfa] font-mono text-xs tracking-widest uppercase">
+              Software Developer &bull; Freelancer
+            </p>
+          </div>
+
+          {/* Bio */}
+          <p className="max-w-xl text-base leading-8 text-[#b0b0b8] md:text-lg">
+            I&apos;m a developer who turns ideas into polished, production-ready
+            digital products. From interactive web apps to scalable backends,
+            I focus on clean architecture, pixel-perfect design, and seamless
+            user experiences that drive real business results.
+          </p>
+
+          {/* Highlight cards */}
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {highlights.map(({ icon: Icon, label, desc }) => (
+              <div
+                key={label}
+                className="group rounded-xl border border-[#1e1e2e] bg-[#0f0f17] p-5 transition-all duration-300 hover:border-[#a78bfa]/30 hover:bg-[#12121c]"
+              >
+                <Icon className="mb-3 h-5 w-5 text-[#a78bfa] transition-transform duration-300 group-hover:scale-110" />
+                <p className="text-sm font-semibold tracking-tight text-white">{label}</p>
+                <p className="mt-1.5 text-xs leading-relaxed text-[#7a7a8a]">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
