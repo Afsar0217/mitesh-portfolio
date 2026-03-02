@@ -33,6 +33,7 @@ export default function NeuralBackground({
     let height = container.clientHeight;
     let particles: Particle[] = [];
     let animationFrameId: number;
+    let isVisible = true;
     const mouse = { x: -1000, y: -1000 };
 
     class Particle {
@@ -106,7 +107,7 @@ export default function NeuralBackground({
       const dpr = window.devicePixelRatio || 1;
       canvas.width = width * dpr;
       canvas.height = height * dpr;
-      ctx.scale(dpr, dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
 
@@ -117,6 +118,11 @@ export default function NeuralBackground({
     };
 
     const animate = () => {
+      if (!isVisible) {
+        animationFrameId = requestAnimationFrame(animate);
+        return;
+      }
+
       ctx.fillStyle = `rgba(0, 0, 0, ${trailOpacity})`;
       ctx.fillRect(0, 0, width, height);
 
@@ -128,10 +134,14 @@ export default function NeuralBackground({
       animationFrameId = requestAnimationFrame(animate);
     };
 
+    let resizeTimeout: ReturnType<typeof setTimeout>;
     const handleResize = () => {
-      width = container.clientWidth;
-      height = container.clientHeight;
-      init();
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        width = container.clientWidth;
+        height = container.clientHeight;
+        init();
+      }, 150);
     };
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -145,6 +155,14 @@ export default function NeuralBackground({
       mouse.y = -1000;
     };
 
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+      },
+      { threshold: 0.05 },
+    );
+    observer.observe(container);
+
     init();
     animate();
 
@@ -157,6 +175,8 @@ export default function NeuralBackground({
       container.removeEventListener("mousemove", handleMouseMove);
       container.removeEventListener("mouseleave", handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
+      clearTimeout(resizeTimeout);
+      observer.disconnect();
     };
   }, [color, trailOpacity, particleCount, speed]);
 
