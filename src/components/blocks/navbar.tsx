@@ -7,6 +7,7 @@ import { Menu, X } from 'lucide-react';
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
+  { label: 'Services', href: '#marketing' },
   { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -19,7 +20,12 @@ export function Navbar() {
   const sectionsCache = useRef<{ label: string; el: HTMLElement }[]>([]);
 
   const updateHash = useCallback((label: string) => {
-    const hash = label === 'Home' ? '' : `#${label.toLowerCase()}`;
+    const hash =
+      label === 'Home'
+        ? ''
+        : label === 'Services'
+          ? '#marketing'
+          : `#${label.toLowerCase()}`;
     if (window.location.hash !== hash) {
       window.history.replaceState(null, '', hash || window.location.pathname);
     }
@@ -47,10 +53,7 @@ export function Navbar() {
       const docHeight = document.documentElement.scrollHeight;
 
       if (scrollBottom >= docHeight - 200) {
-        setActive((prev) => {
-          if (prev !== 'Contact') updateHash('Contact');
-          return 'Contact';
-        });
+        setActive('Contact');
         return;
       }
 
@@ -64,16 +67,17 @@ export function Navbar() {
         }
       }
 
-      setActive((prev) => {
-        if (prev !== found) updateHash(found);
-        return found;
-      });
+      setActive(found);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [updateHash, cacheSections]);
+
+  useEffect(() => {
+    updateHash(active);
+  }, [active, updateHash]);
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -110,7 +114,6 @@ export function Navbar() {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, label: string) => {
     e.preventDefault();
     setActive(label);
-    updateHash(label);
     setMobileOpen(false);
 
     isClickScrolling.current = true;

@@ -75,8 +75,8 @@ export function ContactSection() {
             Let&apos;s Work Together
           </h2>
           <p className="mb-8 max-w-lg text-center text-base leading-relaxed text-white/40">
-            Got an idea, a project, or want to build something together? I&apos;m
-            always excited to hear about new opportunities—solo or team collaborations.
+            Building an app, launching a campaign, or need growth and marketing support?
+            I&apos;m always excited to hear about new opportunities—tech, marketing, or both.
           </p>
 
           <a href="mailto:miteshkashyapbusiness@gmail.com">

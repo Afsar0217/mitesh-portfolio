@@ -17,7 +17,7 @@ export function LandingSection() {
         {/* Left — Copy */}
         <div className="flex w-full flex-col justify-center px-8 md:px-16 lg:px-24 lg:w-1/2">
           <p className="mb-4 text-sm tracking-[0.3em] uppercase text-[#a78bfa] opacity-0 animate-fade-in-up font-mono">
-            Software Developer
+            Software Developer &amp; Growth
           </p>
 
           <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-white opacity-0 animate-fade-in-up animation-delay-200 sm:text-5xl md:text-6xl lg:text-7xl">
@@ -31,7 +31,7 @@ export function LandingSection() {
           </h1>
 
           <p className="mt-6 max-w-md text-base leading-relaxed text-[#a1a1aa] opacity-0 animate-fade-in-up animation-delay-400 md:text-lg">
-            Delivering modern web applications with clean code, thoughtful design, and a focus on performance—as part of collaborative teams.
+            Building web applications and growth strategies—from code and design to SEO, content, and marketing—as part of collaborative teams.
           </p>
 
           <div className="mt-10 opacity-0 animate-fade-in-up animation-delay-600">

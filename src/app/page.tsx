@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/blocks/navbar";
 import { LandingSection } from "@/components/blocks/landing-section";
 import { AboutSection } from "@/components/blocks/about-section";
+import { MarketingSection } from "@/components/blocks/marketing-section";
 import { ProjectsSection } from "@/components/blocks/projects-section";
 import { ContactSection } from "@/components/blocks/contact-section";
 
@@ -13,6 +14,7 @@ export default function Home() {
       <div className="relative z-10 bg-[#0a0a0a]">
         <LandingSection />
         <AboutSection />
+        <MarketingSection />
         <ProjectsSection />
       </div>
 

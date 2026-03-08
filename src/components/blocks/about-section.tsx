@@ -3,12 +3,12 @@
 import React from 'react';
 import Image from 'next/image';
 import { GlowCard } from '@/components/ui/spotlight-card';
-import { Code2, Layers, Globe, Users } from 'lucide-react';
+import { Code2, Layers, Globe, Users, Megaphone } from 'lucide-react';
 
 const highlights = [
   { icon: Code2, label: 'Clean Code', desc: 'Maintainable, scalable architecture' },
   { icon: Layers, label: 'Full Stack', desc: 'End-to-end development' },
-  { icon: Globe, label: 'Modern Web', desc: 'Latest tools & frameworks' },
+  { icon: Megaphone, label: 'Growth & Marketing', desc: 'SEO, content, social & strategy' },
   { icon: Users, label: 'Team Player', desc: 'Collaborative delivery, on time' },
 ];
 
@@ -58,7 +58,7 @@ export function AboutSection() {
               Mitesh Panda
             </h3>
             <p className="mt-2 text-[#a78bfa] font-mono text-xs tracking-widest uppercase">
-              Software Developer &bull; Freelancer
+              Software Developer &bull; Growth &amp; Marketing &bull; Freelancer
             </p>
           </div>
 
