@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { GlowCard } from '@/components/ui/spotlight-card';
 import { Code2, Layers, Globe, Users, Megaphone } from 'lucide-react';
+import { FlowButton } from '@/components/ui/flow-button';
 
 const highlights = [
   { icon: Code2, label: 'Clean Code', desc: 'Maintainable, scalable architecture' },
@@ -69,6 +70,30 @@ export function AboutSection() {
             we focus on clean architecture, pixel-perfect design, and seamless
             user experiences that drive real business results.
           </p>
+
+          {/* Tech / Marketing CTAs */}
+          <div className="mt-3 flex flex-wrap items-center gap-3">
+            <FlowButton
+              text="Technology"
+              onClick={() => {
+                const el = document.querySelector('#projects');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="px-7 py-2.5 text-xs md:text-sm"
+            />
+            <FlowButton
+              text="Marketing"
+              onClick={() => {
+                const el = document.querySelector('#marketing');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="px-7 py-2.5 text-xs md:text-sm border-white/30"
+            />
+          </div>
 
           {/* Highlight cards */}
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
